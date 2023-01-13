@@ -1,16 +1,13 @@
 import React from "react";
 
-interface FooterComponentProps {
-
-}
+interface FooterComponentProps {}
 
 const FooterComponent: React.FC<FooterComponentProps> = (props) => {
-
   return (
     <div className="foot">
       <footer>My foot goes here..</footer>
-    </div >
+    </div>
   );
-}
+};
 
 export default FooterComponent;

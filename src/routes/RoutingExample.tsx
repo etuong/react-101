@@ -11,22 +11,24 @@ const Contact = () => <h1>Contact us</h1>;
 const Challenges = () => <h1>30 Days Of React Challenge</h1>;
 const NotFound = () => <h1>The page your looking for not found</h1>;
 
-const Navbar = () => (
-  <ul>
-    <li>
-      <NavLink to="/">Home</NavLink>
-    </li>
-    <li>
-      <NavLink to="/about">About</NavLink>
-    </li>
-    <li>
-      <NavLink to="/contact">Contact</NavLink>
-    </li>
-    <li>
-      <NavLink to="/challenges">Challenges</NavLink>
-    </li>
-  </ul>
-);
+const Navbar = () => {
+  return (
+    <ul>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about">About</NavLink>
+      </li>
+      <li>
+        <NavLink to="/contact">Contact</NavLink>
+      </li>
+      <li>
+        <NavLink to="/challenges">Challenges</NavLink>
+      </li>
+    </ul>
+  );
+};
 
 const RoutingExample = () => {
   return (

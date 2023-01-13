@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import Square from "./Square";
 
 interface BoardProps {
@@ -6,15 +6,10 @@ interface BoardProps {
   onClick: (i: number) => void;
 }
 
-const Board: React.FC<BoardProps> = props => {
+const Board: React.FC<BoardProps> = (props) => {
   const renderSquare = (i: number) => {
-    return (
-      <Square
-        value={props.squares[i]}
-        onClick={() => props.onClick(i)}
-      />
-    );
-  }
+    return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
+  };
 
   return (
     <div>
@@ -35,7 +30,6 @@ const Board: React.FC<BoardProps> = props => {
       </div>
     </div>
   );
-
-}
+};
 
 export default Board;
