@@ -1,5 +1,8 @@
-# React 101
+# React + Vite
 
-Mini project(s) to mentor engineers on React and its ecosystem. Repo was created using create-react-app and covers state management, React hooks, prop drilling, and many more React fundamentals as well as advanced React topics.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-In addition, the exercises folder contain snippets of code to practice. Some exercises are more challenging than others such as Exercise 4 to create a movie database.
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
