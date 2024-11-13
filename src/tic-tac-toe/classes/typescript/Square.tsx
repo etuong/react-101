@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface SquareProps {
   value: string;
@@ -8,11 +8,10 @@ interface SquareProps {
 class Square extends React.Component<SquareProps> {
   render() {
     return (
-      <button
-        className="square"
-        onClick={() => this.props.onClick()}>
+      <button className="square" onClick={() => this.props.onClick()}>
         {this.props.value}
-      </button >)
+      </button>
+    );
   }
 }
 

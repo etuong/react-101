@@ -4,6 +4,7 @@
 // If <dependency> is [], useEffect runs on first render
 // If <dependency> is [blah], useEffect runs any time any dependency value changes
 
+import React from "react";
 import { useEffect, useState } from "react";
 
 interface ExampleProps {
