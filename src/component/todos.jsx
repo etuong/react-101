@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import Todo from "./todo";
 import AddTodo from "./addtodo";
 
-const Todos = (props) => {
+const Todos = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -52,11 +51,11 @@ const Todos = (props) => {
 
   return (
     <React.Fragment>
-      <h1 className="text-center">
-        You have {todos.length} task(s) left to do!
+      <h1>
+        You have {todos.length - todos.reduce((count, task) => task.isDone ? count + 1 : count, 0)} task(s) left to do!
       </h1>
       <AddTodo addNewTodo={addNewTodo} />
-      <table className="table">
+      <table>
         <tbody>
           {todos.map((todo, index) => (
             <tr key={todo.id}>

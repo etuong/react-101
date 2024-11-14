@@ -10,23 +10,18 @@ const AddTodo = (props) => {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div>
       <input
         type="text"
-        className="form-control"
         id="todoValue"
-        placeholder="ToDo"
+        placeholder="To Do"
       />
-      <div className="input-group-append">
-        <button
-          onClick={addTodo}
-          className="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-        >
-          Add New ToDo
-        </button>
-      </div>
+      <button
+        onClick={addTodo}
+        type="button"
+      >
+        Add New ToDo
+      </button>
     </div>
   );
 };
