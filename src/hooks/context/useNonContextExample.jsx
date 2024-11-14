@@ -1,3 +1,7 @@
+/**
+ * In a typical React application, data is passed from parent components to child components using props. This can become cumbersome when data needs to be accessed by components that are deeply nested in the component tree. This is known as "prop drilling."
+ */
+
 import { useState } from "react";
 
 const FirstComponent = (props) => {

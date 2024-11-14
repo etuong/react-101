@@ -17,8 +17,12 @@ const Game: React.FC<GameProps> = (props) => {
   const [stepNumber, setStepNumber] = useState<number>(0);
 
   useEffect(() => {
-    setInterval(() => setTime(time + 1), 1000);
-  });
+    const intervalId = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   const handleClick = (i: number) => {
     const sliced_history = history.slice(0, stepNumber + 1);

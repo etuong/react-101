@@ -2,6 +2,7 @@
 // State refers to data or properties that need to be tracking in an application.
 // Components get re-rendered when states change
 
+import React from "react";
 import { useState } from "react";
 
 const Example = () => {

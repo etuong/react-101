@@ -1,10 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 import Board from "./Board";
 import Helper from "./Helper";
 
-interface GameProps {
-
-}
+interface GameProps {}
 
 interface GameState {
   time: number;
@@ -14,22 +12,30 @@ interface GameState {
 }
 
 export default class Game extends React.Component<GameProps, GameState> {
+  private intervalId: NodeJS.Timeout | undefined;
+
   constructor(props: GameProps) {
     super(props);
     this.state = {
       time: 1,
       history: [
         {
-          squares: Array(9).fill(null)
-        }
+          squares: Array(9).fill(null),
+        },
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     };
   }
 
   componentDidMount() {
-    setInterval(() => this.setState({ time: this.state.time + 1 }), 1000);
+    this.intervalId = setInterval(() => {
+      this.setState((prevState) => ({ time: prevState.time + 1 }));
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   handleClick(i: number) {
@@ -46,18 +52,18 @@ export default class Game extends React.Component<GameProps, GameState> {
     this.setState({
       history: history.concat([
         {
-          squares: squares
-        }
+          squares: squares,
+        },
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !this.state.xIsNext,
     });
   }
 
   jumpTo(step: number) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      xIsNext: step % 2 === 0,
     });
   }
 
@@ -66,9 +72,7 @@ export default class Game extends React.Component<GameProps, GameState> {
     const current = history[this.state.stepNumber];
 
     const moves = history.map((_, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+      const desc = move ? "Go to move #" + move : "Go to game start";
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -91,7 +95,7 @@ export default class Game extends React.Component<GameProps, GameState> {
           <div className="game-board">
             <Board
               squares={current.squares}
-              onClick={i => this.handleClick(i)}
+              onClick={(i) => this.handleClick(i)}
             />
           </div>
           <div className="game-info">

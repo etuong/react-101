@@ -1,3 +1,6 @@
+/**
+ * React Context is a way to manage state globally. It is a way to share data between components in a React application without having to pass props down manually at every level of the component tree. React Context provides a way to create a global state that can be accessed by any component within a specific context. This means you can share data directly with the components that need it, regardless of their position in the component tree.
+ */
 import { createContext, useContext, useState } from "react";
 
 export const ColorContext = createContext();

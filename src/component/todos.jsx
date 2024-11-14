@@ -7,12 +7,12 @@ const Todos = (props) => {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      task: "Help Mary",
+      task: "Prepare lesson plan",
       isDone: false,
     },
     {
       id: 2,
-      task: "Talk to Daniel",
+      task: "Bring snacks",
       isDone: true,
     },
     {
