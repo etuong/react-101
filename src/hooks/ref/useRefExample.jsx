@@ -2,24 +2,20 @@
 // It can be used to store a mutable value that does not cause a re-render when updated.
 // This example is paired with useRefExample
 
+import React from "react";
 import { useRef } from "react";
 
 const RefExample = () => {
-  const nameRef = useRef<HTMLInputElement | null>(null);
-  const contentRef = useRef<HTMLTextAreaElement | null>(null);
+  const nameRef = useRef(null);
 
   const handleSubmit = () => {
     const nameField = nameRef.current;
-    const contentField = contentRef.current;
-    if (nameField && contentField) {
-      const name = nameField.value;
-      const content = contentField.value;
-      if (name && content) {
-        const newBlog = { name, content };
-        console.log(newBlog);
 
+    if (nameField) {
+      const name = nameField.value;
+      if (name) {
+        alert(name);
         nameField.value = "";
-        contentField.value = "";
       }
     }
   };
@@ -33,15 +29,8 @@ const RefExample = () => {
         }}
       >
         <label>Blog Name</label>
-        <input type="text" ref={nameRef} placeholder="Name of your blog.." />
-
-        <label>Blog Content</label>
         <br />
-        <textarea
-          ref={contentRef}
-          className="contentField"
-          placeholder="Write your blog here.."
-        />
+        <input type="text" ref={nameRef} placeholder="Name of your blog.." />
 
         <input type="submit" value="Submit" />
       </form>

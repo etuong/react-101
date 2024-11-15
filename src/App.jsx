@@ -11,6 +11,12 @@ import WithNoRefExample from "./hooks/ref/useNonRefExample"
 
 import Todos from "./component/todos"
 
+import UseEffectExample from "./hooks/useEffectExample"
+import UseStateExample from "./hooks/useStateExample"
+import UseCallbackExample from "./hooks/useCallbackExample"
+
+import RoutingExample from "./routes/RoutingExample";
+
 import TicTacToe1 from "./tic-tac-toe/classes/javascript/Game";
 import TicTacToe2 from "./tic-tac-toe/classes/typescript/Game";
 import TicTacToe3 from "./tic-tac-toe/functional/javascript/Game";
@@ -21,6 +27,18 @@ function App() {
     <>
       <header className="header">Todo Component</header>
       <Todos />
+
+      <header className="header">Routing Example</header>
+      <RoutingExample />
+
+      <header className="header">useEffect Example</header>
+      <UseEffectExample />
+
+      <header className="header">useState Example</header>
+      <UseStateExample />
+
+      <header className="header">useCallback Example</header>
+      <UseCallbackExample />
 
       <header className="header">Context API Example - With Context</header>
       <WithContextExample />

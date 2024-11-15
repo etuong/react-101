@@ -20,10 +20,6 @@ const Example = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
 
-  const increment = () => {
-    setCount((c) => c + 1);
-  };
-
   // Without useCallback, component will still render due to "referential equality"
   // Every time a component re-renders, its functions get recreated.
   // Because of this, the addTodo function has actually changed.
@@ -37,7 +33,7 @@ const Example = () => {
       <hr />
       <div>
         Count: {count}
-        <button onClick={increment}>+</button>
+        <button onClick={() => setCount((c) => c + 1)}>+</button>
       </div>
     </>
   );

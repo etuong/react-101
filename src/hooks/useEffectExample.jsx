@@ -7,14 +7,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-interface ExampleProps {
-  num: number;
-}
-
-const Example = (prop: ExampleProps) => {
-  const [count, setCount] = useState<number>(0);
-  const [count2, setCount2] = useState<number>(0);
-  const [numberFromParent, setNumberFromParent] = useState<number>(prop.num);
+const Example = (prop) => {
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const [numberFromParent, setNumberFromParent] = useState(prop.num);
 
   useEffect(() => {
     let timer = setTimeout(() => {
