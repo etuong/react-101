@@ -10,7 +10,7 @@ const AddTodo = (props) => {
   };
 
   return (
-    <div>
+    <>
       <input
         type="text"
         id="todoValue"
@@ -22,7 +22,7 @@ const AddTodo = (props) => {
       >
         Add New ToDo
       </button>
-    </div>
+    </>
   );
 };
 

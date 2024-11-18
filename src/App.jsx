@@ -9,8 +9,6 @@ import WithNoMemoExample from "./hooks/memo/useNonMemoExample"
 import WithRefExample from "./hooks/ref/useRefExample"
 import WithNoRefExample from "./hooks/ref/useNonRefExample"
 
-import Todos from "./component/todos"
-
 import UseEffectExample from "./hooks/useEffectExample"
 import UseStateExample from "./hooks/useStateExample"
 import UseCallbackExample from "./hooks/useCallbackExample"
@@ -18,6 +16,8 @@ import UseCallbackExample from "./hooks/useCallbackExample"
 import RoutingExample from "./routes/RoutingExample";
 
 import Exercise1 from "./exercises/exercise1/exercise"
+import Exercise2 from "./exercises/exercise2/exercise"
+import Exercise3 from "./exercises/exercise3/main"
 
 import TicTacToe1 from "./tic-tac-toe/classes/javascript/Game";
 import TicTacToe2 from "./tic-tac-toe/classes/typescript/Game";
@@ -27,9 +27,6 @@ import TicTacToe4 from "./tic-tac-toe/functional/typescript/Game";
 function App() {
   return (
     <>
-      <header className="header">Todo Component</header>
-      <Todos />
-
       <header className="header">Routing Example</header>
       <RoutingExample />
 
@@ -60,8 +57,14 @@ function App() {
       <header className="header">useRef Example - Without reference</header>
       <WithNoRefExample />
 
-      <header className="header">Exercise 1</header>
+      <header className="header">Exercise 1 - Color Input</header>
       <Exercise1 />
+
+      <header className="header">Exercise 2 - ToDo App</header>
+      <Exercise2 />
+
+      <header className="header">Exercise 3 - Blog App</header>
+      <Exercise3 />
 
       <header className="header">Tic Tac Toe using JavaScript Classes</header>
       <TicTacToe1 />

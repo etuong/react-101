@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import Todo from "./todo";
-import AddTodo from "./addtodo";
+import Todo from "../../component/todo";
+import AddTodo from "../../component/addToDo";
 
-const Todos = () => {
+// Exercise: Create a ToDo app
+
+const Exercise = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -73,4 +75,4 @@ const Todos = () => {
   );
 };
 
-export default Todos;
+export default Exercise;

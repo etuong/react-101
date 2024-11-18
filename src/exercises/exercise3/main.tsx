@@ -3,7 +3,7 @@ import Blog from "./blog/Blog";
 import FooterComponent from "./footer/FooterComponent";
 import FormComponent from "./form/FormComponent";
 import "./main.scss";
-import NavBarComponent from "./navbar/NavBarComponent";
+import React from "react";
 
 const BlogApp = () => {
   const [blogs, setBlogs] = useState<Blog[]>([
@@ -36,31 +36,25 @@ const BlogApp = () => {
 
   return (
     <section className="container">
-      <NavBarComponent />
+      <FormComponent handleSubmit={handleBlogCreation} />
 
-      <div>
-        <FormComponent handleSubmit={handleBlogCreation} />
-
-        <div className="App">
-          <ul>
-            {blogs.map((blog, index) => {
-              return (
-                <li
-                  key={index}
-                  className={`blog-list-item ${
-                    active === index ? "active" : ""
-                  }`}
-                  onClick={() => {
-                    setActive(index);
-                  }}
-                >
-                  <p>{blog.name}</p>
-                  <p>{blog.content}</p>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+      <div className="App">
+        <ul>
+          {blogs.map((blog, index) => {
+            return (
+              <li
+                key={index}
+                className={`blog-list-item ${active === index ? "active" : ""}`}
+                onClick={() => {
+                  setActive(index);
+                }}
+              >
+                <p>{blog.name}</p>
+                <p>{blog.content}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       {blogs[active!] && (
