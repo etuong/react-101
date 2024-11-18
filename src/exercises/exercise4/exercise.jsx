@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import "./exercise.scss";
 
-const App = () => {
-  const KEY = process.env.REACT_APP_TMDB_API_KEY;
+const Exercise = () => {
+  const KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -27,7 +27,8 @@ const App = () => {
   const showMovies = async (url) => {
     setMovies([]);
 
-    const data = await fetch(url).then((res) => res.json());
+    const data = await fetch(url)
+      .then((res) => res.json());
 
     console.log(data.results);
     const array = [];
@@ -58,9 +59,8 @@ const App = () => {
           return (
             <div key={index}>
               <img
-                src={`https://image.tmdb.org/t/p/w1280/${
-                  IMGPATH + movie.poster
-                }`}
+                src={`https://image.tmdb.org/t/p/w1280/${IMGPATH + movie.poster
+                  }`}
                 alt=""
               />
               <h2>{movie.title}</h2>
@@ -72,4 +72,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Exercise;

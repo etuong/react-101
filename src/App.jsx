@@ -18,6 +18,7 @@ import RoutingExample from "./routes/RoutingExample";
 import Exercise1 from "./exercises/exercise1/exercise"
 import Exercise2 from "./exercises/exercise2/exercise"
 import Exercise3 from "./exercises/exercise3/main"
+import Exercise4 from "./exercises/exercise4/exercise"
 
 import TicTacToe1 from "./tic-tac-toe/classes/javascript/Game";
 import TicTacToe2 from "./tic-tac-toe/classes/typescript/Game";
@@ -65,6 +66,9 @@ function App() {
 
       <header className="header">Exercise 3 - Blog App</header>
       <Exercise3 />
+
+      <header className="header">Exercise 4 - Movie Database</header>
+      <Exercise4 />
 
       <header className="header">Tic Tac Toe using JavaScript Classes</header>
       <TicTacToe1 />
