@@ -81,9 +81,7 @@ const Game = (props) => {
     const desc = move ? "Move #" + move : "Game start";
     return (
       <li key={move}>
-        <a href="/#" onClick={() => jumpTo(move)}>
-          {desc}
-        </a>
+        <button onClick={() => jumpTo(move)}>{desc}</button>
       </li>
     );
   });

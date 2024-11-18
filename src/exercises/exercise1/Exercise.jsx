@@ -1,51 +1,37 @@
 import { useState } from "react";
 
-const Exercise1 = (props) => {
-  const [counter, setCounter] = useState(props.defaultWhatever);
+// Exercise: Create a textfield and a dropdown where users can type or select to change the background color of a div.box
 
-  const [flag, setFlag] = useState(false);
+const Exercise = (props) => {
+  const [color, setColor] = useState("red");
 
-  var ethan = 0;
-
-  const incrementCounter = () => {
-    // setCounter(counter + 1);
-    ethan += 1;
-    console.log(ethan);
+  const handleChange = (event) => {
+    setColor(event.target.value);
   };
-
-  // Same as above
-  // function incrementCounter() {
-  //   setCounter(counter + 1);
-  // }
-
-  const whatever = () => {
-    setFlag(!flag);
-  };
-
-  const tasks = [
-    "clean up for Happy",
-    "walk Happy",
-    "feed Happy",
-    "kiss Happy",
-  ];
 
   return (
-    <div>
-      <p>{counter}</p>
-      <p>{flag.toString()}</p>
-      <button onClick={(e) => incrementCounter()}>Click me to Increment</button>
-      <button onClick={whatever}>Toggle the Flag</button>
-
-      <ul>
-        {tasks.map((whatever, index) => {
-          return <li key={index}>{whatever}</li>;
-        })}
-      </ul>
-    </div>
+    <form>
+      <label>
+        Enter your color: {'\u00A0'}
+        <input
+          type="text"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+        />
+      </label>
+      <br />
+      <p>Too lazy to type? Select a color here</p>
+      <select value={color} onChange={handleChange}>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="black">Black</option>
+      </select>
+      <div className="box" style={{ marginTop: '10px', height: '100px', width: '200px', background: color }}></div>
+    </form>
   );
 };
 
-const initialValue = 99;
-
-export { Exercise1 };
-export default initialValue;
+export default Exercise;

@@ -17,6 +17,8 @@ import UseCallbackExample from "./hooks/useCallbackExample"
 
 import RoutingExample from "./routes/RoutingExample";
 
+import Exercise1 from "./exercises/exercise1/exercise"
+
 import TicTacToe1 from "./tic-tac-toe/classes/javascript/Game";
 import TicTacToe2 from "./tic-tac-toe/classes/typescript/Game";
 import TicTacToe3 from "./tic-tac-toe/functional/javascript/Game";
@@ -57,6 +59,9 @@ function App() {
 
       <header className="header">useRef Example - Without reference</header>
       <WithNoRefExample />
+
+      <header className="header">Exercise 1</header>
+      <Exercise1 />
 
       <header className="header">Tic Tac Toe using JavaScript Classes</header>
       <TicTacToe1 />

@@ -4,7 +4,6 @@
 import React, { useCallback, useState, memo } from "react";
 
 const Todos = React.memo(({ todos, addTodo }) => {
-  console.log("child render");
   return (
     <>
       <h2>My Todos</h2>
