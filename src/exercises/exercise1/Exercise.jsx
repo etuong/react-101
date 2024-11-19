@@ -16,7 +16,7 @@ const Exercise = (props) => {
         <input
           type="text"
           value={color}
-          onChange={(e) => setColor(e.target.value)}
+          onChange={handleChange}
         />
       </label>
       <br />
