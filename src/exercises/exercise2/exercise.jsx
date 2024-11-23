@@ -6,57 +6,37 @@ import AddTodo from "../../component/addToDo";
 
 const Exercise = () => {
   const [todos, setTodos] = useState([
-    {
-      id: 1,
-      task: "Prepare lesson plan",
-      isDone: false,
-    },
-    {
-      id: 2,
-      task: "Bring snacks",
-      isDone: true,
-    },
-    {
-      id: 3,
-      task: "Walk Happy",
-      isDone: false,
-    },
+    { id: 1, task: "Prepare lesson plan", isCompleted: false },
+    { id: 2, task: "Bring snacks", isCompleted: true },
+    { id: 3, task: "Walk Happy", isCompleted: false },
   ]);
 
-  const handleDelete = (todo) => {
-    const updatedTodos = todos.filter((t) => {
-      return t.id !== todo;
-    });
+  const handleDelete = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
 
-  const handleDone = (todo) => {
-    const updatedTodos = [...todos];
-    updatedTodos.map((t) => {
-      if (t.id === todo.id) {
-        t.isDone = !t.isDone;
-      }
-      return t;
-    });
+  const toggleCompletion = (selectedTodo) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === selectedTodo.id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    );
     setTodos(updatedTodos);
   };
 
-  const addNewTodo = (task) => {
-    const updatedTodos = [...todos];
-    updatedTodos.push({
-      id: new Date().getTime(),
-      task: task,
-      isDone: false,
-    });
-    setTodos(updatedTodos);
+  const addTodo = (task) => {
+    const newTodo = { id: Date.now(), task, isCompleted: false };
+    setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
+
+  const incompleteTasksCount = todos.reduce(
+    (count, todo) => (todo.isCompleted ? count : count + 1),
+    0
+  );
 
   return (
     <React.Fragment>
-      <h1>
-        You have {todos.length - todos.reduce((count, task) => task.isDone ? count + 1 : count, 0)} task(s) left to do!
-      </h1>
-      <AddTodo addNewTodo={addNewTodo} />
+      <h1>You have {incompleteTasksCount} task(s) left to do!</h1>
+      <AddTodo addNewTodo={addTodo} />
       <table>
         <tbody>
           {todos.map((todo, index) => (
@@ -65,7 +45,7 @@ const Exercise = () => {
                 index={index + 1}
                 todo={todo}
                 handleDelete={handleDelete}
-                handleDone={handleDone}
+                handleDone={toggleCompletion}
               />
             </tr>
           ))}

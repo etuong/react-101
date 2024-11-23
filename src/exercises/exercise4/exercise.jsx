@@ -3,70 +3,64 @@ import React, { useEffect, useState } from "react";
 import "./exercise.scss";
 
 const Exercise = () => {
-  const KEY = import.meta.env.VITE_TMDB_API_KEY;
+  const apikey = import.meta.env.VITE_TMDB_API_KEY;
 
-  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${KEY}&page=1`;
-    showMovies(apiUrl);
+    const apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${apikey}&page=1`;
+    fetchMovies(apiUrl);
   }, []);
 
-  const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-  const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${KEY}&query=`;
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (search) {
-      showMovies(SEARCHAPI + search);
-      setSearch("");
-    }
-  };
-
-  const showMovies = async (url) => {
+  const fetchMovies = async (url) => {
     setMovies([]);
 
-    const data = await fetch(url)
-      .then((res) => res.json());
+    const response = await fetch(url);
+    const data = await response.json();
 
-    console.log(data.results);
-    const array = [];
+    const movieList = data.results.map((movie) => ({
+      title: movie.title,
+      posterPath: movie.poster_path,
+    }));
 
-    data.results.forEach((element) => {
-      array.push({ title: element.title, poster: element.poster_path });
-    });
+    setMovies(movieList);
+  };
 
-    setMovies(array);
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    if (searchTerm) {
+      const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${searchTerm}`;
+      fetchMovies(searchUrl);
+      setSearchTerm("");
+    }
   };
 
   return (
     <React.Fragment>
       <header>
         <h1>Movies</h1>
-        <form id="form" onSubmit={handleSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <input
             type="text"
-            value={search}
+            value={searchTerm}
             placeholder="Search"
             className="search"
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(event) => setSearchTerm(event.target.value)}
           />
         </form>
       </header>
       <main>
-        {movies.map((movie, index) => {
-          return (
-            <div key={index}>
-              <img
-                src={`https://image.tmdb.org/t/p/w1280/${IMGPATH + movie.poster
-                  }`}
-                alt=""
-              />
-              <h2>{movie.title}</h2>
-            </div>
-          );
-        })}
+        {movies.map((movie, index) =>
+          <div key={index}>
+            <img
+              src={`https://image.tmdb.org/t/p/w1280/${movie.posterPath}`}
+              alt=""
+            />
+            <h2>{movie.title}</h2>
+          </div>
+        )}
       </main>
     </React.Fragment>
   );

@@ -1,29 +1,29 @@
 import "./App.css";
 
-import WithContextExample from "./hooks/context/useContextExample"
-import WithNoContextExample from "./hooks/context/useNonContextExample"
+import WithContextExample from "./hooks/context/useContextExample";
+import WithoutContextExample from "./hooks/context/useNonContextExample";
 
-import WithMemoExample from "./hooks/memo/useMemoExample"
-import WithNoMemoExample from "./hooks/memo/useNonMemoExample"
+import WithMemoExample from "./hooks/memo/useMemoExample";
+import WithoutMemoExample from "./hooks/memo/useNonMemoExample";
 
-import WithRefExample from "./hooks/ref/useRefExample"
-import WithNoRefExample from "./hooks/ref/useNonRefExample"
+import WithRefExample from "./hooks/ref/useRefExample";
+import WithoutRefExample from "./hooks/ref/useNonRefExample";
 
-import UseEffectExample from "./hooks/useEffectExample"
-import UseStateExample from "./hooks/useStateExample"
-import UseCallbackExample from "./hooks/useCallbackExample"
+import UseEffectExample from "./hooks/useEffectExample";
+import UseStateExample from "./hooks/useStateExample";
+import UseCallbackExample from "./hooks/useCallbackExample";
 
 import RoutingExample from "./routes/RoutingExample";
 
-import Exercise1 from "./exercises/exercise1/exercise"
-import Exercise2 from "./exercises/exercise2/exercise"
-import Exercise3 from "./exercises/exercise3/main"
-import Exercise4 from "./exercises/exercise4/exercise"
+import ExerciseColorInput from "./exercises/exercise1/exercise";
+import ExerciseTodoApp from "./exercises/exercise2/exercise";
+import ExerciseBlogApp from "./exercises/exercise3/main";
+import ExerciseMovieDatabase from "./exercises/exercise4/exercise";
 
-import TicTacToe1 from "./tic-tac-toe/classes/javascript/Game";
-import TicTacToe2 from "./tic-tac-toe/classes/typescript/Game";
-import TicTacToe3 from "./tic-tac-toe/functional/javascript/Game";
-import TicTacToe4 from "./tic-tac-toe/functional/typescript/Game";
+import TicTacToeJSClasses from "./tic-tac-toe/classes/javascript/Game";
+import TicTacToeTSClasses from "./tic-tac-toe/classes/typescript/Game";
+import TicTacToeJSFunctional from "./tic-tac-toe/functional/javascript/Game";
+import TicTacToeTSFunctional from "./tic-tac-toe/functional/typescript/Game";
 
 function App() {
   return (
@@ -44,45 +44,46 @@ function App() {
       <WithContextExample />
 
       <header className="header">Context API Example - Without Context</header>
-      <WithNoContextExample />
+      <WithoutContextExample />
 
-      <header className="header">useMemo Example - With memoization</header>
+      <header className="header">useMemo Example - With Memoization</header>
       <WithMemoExample />
 
-      <header className="header">useMemo Example - Without memoization</header>
-      <WithNoMemoExample />
+      <header className="header">useMemo Example - Without Memoization</header>
+      <WithoutMemoExample />
 
-      <header className="header">useRef Example - With reference</header>
+      <header className="header">useRef Example - With Reference</header>
       <WithRefExample />
 
-      <header className="header">useRef Example - Without reference</header>
-      <WithNoRefExample />
+      <header className="header">useRef Example - Without Reference</header>
+      <WithoutRefExample />
 
       <header className="header">Exercise 1 - Color Input</header>
-      <Exercise1 />
+      <ExerciseColorInput />
 
       <header className="header">Exercise 2 - ToDo App</header>
-      <Exercise2 />
+      <ExerciseTodoApp />
 
       <header className="header">Exercise 3 - Blog App</header>
-      <Exercise3 />
+      <ExerciseBlogApp />
 
       <header className="header">Exercise 4 - Movie Database</header>
-      <Exercise4 />
+      <ExerciseMovieDatabase />
 
       <header className="header">Tic Tac Toe using JavaScript Classes</header>
-      <TicTacToe1 />
+      <TicTacToeJSClasses />
 
       <header className="header">Tic Tac Toe using TypeScript Classes</header>
-      <TicTacToe2 />
+      <TicTacToeTSClasses />
 
       <header className="header">Tic Tac Toe using Functional JavaScript</header>
-      <TicTacToe3 />
+      <TicTacToeJSFunctional />
 
       <header className="header">Tic Tac Toe using Functional TypeScript</header>
-      <TicTacToe4 />
+      <TicTacToeTSFunctional />
     </>
   );
 }
 
 export default App;
+

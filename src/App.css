@@ -1,11 +1,17 @@
+:root {
+  --background-color: #282c34;
+  --text-color: white;
+  --font-size: calc(10px + 2vmin);
+}
+
 .header {
-  background-color: #282c34;
+  background-color: var(--background-color);
   min-height: 5vh;
   display: flex;
-  margin: 20px 0px;
+  margin: 20px 0;
   padding-left: 10px;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: var(--font-size);
+  color: var(--text-color);
 }
 
 body {
@@ -29,8 +35,9 @@ ul {
   display: table;
 }
 
-.status {
-  margin-bottom: 10px;
+.game-info {
+  margin-left: 20px;
+  font-size: 25px;
 }
 
 .square {
@@ -55,11 +62,7 @@ ul {
   flex-direction: row;
 }
 
-.game-info {
-  margin-left: 20px;
-  font-size: 25px;
-}
-
 .strike-through {
   text-decoration: line-through;
 }
+

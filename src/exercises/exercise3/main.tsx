@@ -6,11 +6,11 @@ import "./main.scss";
 import React from "react";
 
 const BlogApp = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([
+  const [blogList, setBlogList] = useState<Blog[]>([
     { name: "Blog 1", content: "This is a very long text" },
     { name: "Blog 2", content: "Amazing! 10 out of 10" },
   ]);
-  const [active, setActive] = useState<number>();
+  const [activeBlog, setActiveBlog] = useState<number | undefined>();
 
   const handleBlogCreation = (
     nameField: HTMLInputElement | null,
@@ -21,7 +21,7 @@ const BlogApp = () => {
       const content = contentField.value;
       if (name && content) {
         const newBlog: Blog = { name, content };
-        setBlogs([...blogs, newBlog]);
+        setBlogList([...blogList, newBlog]);
         nameField.value = "";
         contentField.value = "";
       }
@@ -29,9 +29,11 @@ const BlogApp = () => {
   };
 
   const handleDelete = () => {
-    const copy = [...blogs];
-    copy.splice(active!, 1);
-    setBlogs(copy);
+    if (activeBlog === undefined) return;
+    const copy = [...blogList];
+    copy.splice(activeBlog, 1);
+    setBlogList(copy);
+    setActiveBlog(undefined);
   };
 
   return (
@@ -40,14 +42,12 @@ const BlogApp = () => {
 
       <div className="App">
         <ul>
-          {blogs.map((blog, index) => {
+          {blogList.map((blog, index) => {
             return (
               <li
                 key={index}
-                className={`blog-list-item ${active === index ? "active" : ""}`}
-                onClick={() => {
-                  setActive(index);
-                }}
+                className={`blog-list-item ${activeBlog === index ? "active" : ""}`}
+                onClick={() => setActiveBlog(index)}
               >
                 <p>{blog.name}</p>
                 <p>{blog.content}</p>
@@ -57,11 +57,11 @@ const BlogApp = () => {
         </ul>
       </div>
 
-      {blogs[active!] && (
+      {activeBlog !== undefined && (
         <button
           className="deleteBtn"
-          onClick={(e) => handleDelete()}
-        >{`Delete ${blogs[active!]?.name}`}</button>
+          onClick={handleDelete}
+        >{`Delete ${blogList[activeBlog]?.name}`}</button>
       )}
 
       <FooterComponent />

@@ -1,29 +1,24 @@
-const AddTodo = (props) => {
-  const addTodo = () => {
-    const field = document.getElementById("todoValue");
-    if (!field.value) {
-      alert("Please Add Todo Text");
+const AddTodo = ({ addNewTodo }) => {
+  const handleAddTodo = (event) => {
+    const todoValue = event.target.value.trim();
+
+    if (!todoValue) {
       return;
     }
-    props.addNewTodo(field.value);
-    field.value = "";
+
+    addNewTodo(todoValue);
+    event.target.value = "";
   };
 
   return (
     <>
-      <input
-        type="text"
-        id="todoValue"
-        placeholder="To Do"
-      />
-      <button
-        onClick={addTodo}
-        type="button"
-      >
+      <input type="text" id="todo-value" placeholder="To Do" onChange={handleAddTodo} />
+      <button type="button" onClick={handleAddTodo}>
         Add New ToDo
       </button>
     </>
   );
 };
+
 
 export default AddTodo;

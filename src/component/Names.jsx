@@ -4,8 +4,6 @@ but work in isolation and return HTML */
 import { useEffect, useState } from "react";
 
 const Names = () => {
-  useEffect(() => { }, []);
-
   const [names, setNames] = useState([
     "Eddie",
     "Ciara",
@@ -15,17 +13,17 @@ const Names = () => {
     "Joseph",
   ]);
 
-  const addEthan = (e) => {
+  const handleAddName = () => {
     setNames((prevNames) => [...prevNames, "Ethan"]);
   };
 
   return (
     <div>
       <h1 className="header">Roster</h1>
-      <button onClick={addEthan}>Click here to add an Ethan!</button>
+      <button onClick={handleAddName}>Click here to add an Ethan!</button>
       <ul>
-        {names.map((name) => (
-          <li>{name}</li>
+        {names.map((name, index) => (
+          <li key={index}>{name}</li>
         ))}
       </ul>
     </div>
